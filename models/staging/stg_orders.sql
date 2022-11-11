@@ -1,5 +1,6 @@
 select
 --from raw_orders
+{{ dbt_utils.surrogate_key(['o.orderid', 'c.customerid','p.productid']) }} as sk_orders,
 orderid,
 orderdate,
 shipdate,
